@@ -39,7 +39,7 @@
             type="text"
             placeholder="Avenida Bernardo Vieira de Melo, Nº 5171"
         /></label>
-        <label for="card">
+        <label for="card" class="inline">
           Método de pagamento: <br /><br />
           <input
             id="card"
@@ -50,25 +50,36 @@
           />
           Cartão</label
         >
-        <label for="pix"
-          ><input
+        <label for="pix" class="inline">
+          <input
             id="pix"
             type="radio"
             name="payment"
             class="inline"
             value="Pix"
           />
-          Pix</label
-        >
-        <label for="money">
+          Pix
+        </label>
+        <label for="money" class="inline">
           <input
             id="money"
             type="radio"
             name="payment"
             class="inline"
             value="Dinheiro"
+            onclick= "show2()";
           /> Dinheiro
         </label>
+
+        <div id="div1" class="hide">
+          <span>Troco?</span>
+          <input type="radio" name="one" class="inline" id="troco" />
+          Sim &nbsp;
+          <input type="radio" name="one" class="inline" id="din-certo" />
+          Não
+        </div>
+        </div>
+
       </fieldset>
       <fieldset>
         <label for="pedido"
@@ -100,6 +111,10 @@
     let pgmt;
     let pedido;
 
+    function show2(){
+      document.getElementById('div1').style.display = 'block';
+    }
+
     var button = document.querySelector("button");
 
     button.onclick = function () {
@@ -111,8 +126,12 @@
         pgmt = document.getElementById("card").value;
       }
 
-      if (document.getElementById("money").checked) {
-        pgmt = document.getElementById("money").value;
+      if (document.getElementById("din-certo").checked) {
+        pgmt = "Dinheiro e não precisa de troco!";
+      }
+
+      if (document.getElementById("troco").checked) {
+        pgmt = "Dinheiro e precisa de troco!";
       }
 
       if (document.getElementById("pix").checked) {
@@ -120,7 +139,7 @@
       }
       finalizarPedido();
     };
-
+    
     function finalizarPedido() {
 
       var texto =

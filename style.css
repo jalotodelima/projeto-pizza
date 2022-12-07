@@ -118,7 +118,22 @@ textarea {
 
 .inline {
     width: unset;
-    margin: 0 0.5em 0 0;
+    margin: 0 0.5em 0.2em 0;
+    vertical-align: middle;
+}
+
+.inline:hover {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}
+
+#div1 {
+    font-size: 0.85em;
+    max-width: 100px;
+    margin: 0 5em 0 0;
     vertical-align: middle;
 }
 
