@@ -14,10 +14,10 @@
 }
 
 header {
-    min-height: 100px;
+    min-height: 140px;
     background-image: linear-gradient(to top, var(--cor1), var(--cor2), var(--cor3));
     text-align: center;
-    padding-top: 10px;
+    padding-top: 40px;
 }
 
 header > h1 {
