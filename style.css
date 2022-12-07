@@ -122,6 +122,10 @@ textarea {
     vertical-align: middle;
 }
 
+div > .inline {
+    cursor:pointer;
+}
+
 .inline:hover {
     cursor: pointer;
 }
@@ -132,8 +136,6 @@ textarea {
 
 #div1 {
     font-size: 0.85em;
-    max-width: 100px;
-    margin: 0 5em 0 0;
     vertical-align: middle;
 }
 
