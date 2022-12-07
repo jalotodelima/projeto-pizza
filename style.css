@@ -17,7 +17,7 @@ header {
     min-height: 140px;
     background-image: linear-gradient(to top, var(--cor1), var(--cor2), var(--cor3));
     text-align: center;
-    padding: 40px 0px 30px 0px;
+    padding: 35px 0px 10px 0px;
 }
 
 header > h1 {
@@ -30,8 +30,9 @@ header > h1 {
 }
 
 nav {
-    background-image: linear-gradient(to top, var(--cor1) 6%, var(--cor2), var(--cor1) 2.9%);
+    background-image: linear-gradient(to top, var(--cor1) 6%, var(--cor2), var(--cor1) 1.9%);
     box-shadow: 0px 7px 7px rgba(0, 0, 0, 0.193);
+    padding: 30px 20px;
     text-align: center;    
 }
 
