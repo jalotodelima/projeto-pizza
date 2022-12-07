@@ -130,11 +130,11 @@ div > .inline {
     cursor: pointer;
 }
 
-.hide {
+.hide, .hide2 {
     display: none;
 }
 
-#div1 {
+#div1, #div2 {
     font-size: 0.85em;
     vertical-align: middle;
 }

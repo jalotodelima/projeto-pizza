@@ -73,11 +73,16 @@
 
         <div id="div1" class="hide">
           <span>Troco?</span>
-          <input type="radio" name="one" id="troco" class="inline" />
+          <input type="radio" name="one" id="troco" class="inline" onclick="show3()" />
           Sim &nbsp;
           <input type="radio" name="one" id="din-certo" class="inline" />
           Não
         </div>
+
+        <div id="div2" class="hide2">
+          <span>Para quanto?</span>
+          <input type="text" id="quanto" class="inline" />
+
         </div>
 
       </fieldset>
@@ -115,6 +120,10 @@
       document.getElementById('div1').style.display = 'block';
     }
 
+    function show3() {
+      document.getElementById('div2').style.display = 'block';
+    }
+
     var button = document.querySelector("button");
 
     button.onclick = function () {
@@ -131,7 +140,7 @@
       }
 
       if (document.getElementById("troco").checked) {
-        pgmt = "Dinheiro e precisa de troco!";
+        pgmt = "Troco para " + document.getElementById("quanto").value;
       }
 
       if (document.getElementById("pix").checked) {
@@ -151,7 +160,7 @@
         "Meu endereço é: " +
         endereco +
         ". \n\n" +
-        "O método de pagamento é: " +
+        "Pagamento: " +
         pgmt +
         ". \n \n";
 
