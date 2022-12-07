@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Casa da Pizza Scotini - Pedido</title>
+    <link rel="shortcut icon" href="img/logo-pizzaria-scotini.ico">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+            <h1>Casa da Pizza Scotini - Pedido</h1>
+    </header>
+    <nav>
+      <a href="#" rel="self">Pedido</a>
+      <a href="taglink/cardapio.html" rel="next">Cardápio</a>
+    </nav>
+    <main>
+    <p>
+      Preencha os dados abaixo para realizar seu pedido:
+    </p>
+
+    <form>
+      <fieldset>
+        <label for="first-name"
+          >Seu nome:
+          <input
+            id="first-name"
+            name="first-name"
+            type="text"
+            placeholder="Nhem"
+        /></label>
+        <label for="address"
+          >Seu endereço:
+          <input
+            id="address"
+            name="address"
+            type="text"
+            placeholder="Avenida Bernardo Vieira de Melo, Nº 5171"
+        /></label>
+        <label for="card">
+          Método de pagamento: <br /><br />
+          <input
+            id="card"
+            type="radio"
+            name="payment"
+            class="inline"
+            value="Cartão"
+          />
+          Cartão</label
+        >
+        <label for="pix"
+          ><input
+            id="pix"
+            type="radio"
+            name="payment"
+            class="inline"
+            value="Pix"
+          />
+          Pix</label
+        >
+        <label for="money">
+          <input
+            id="money"
+            type="radio"
+            name="payment"
+            class="inline"
+            value="Dinheiro"
+          /> Dinheiro
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="pedido"
+          >Faça seu pedido:
+          <textarea
+            id="pedido"
+            name="pedido"
+            rows="3"
+            cols="30"
+            placeholder="Ex: Pizza Família Meia 4 queijos e Meia portuguesa. E 1 Coca de 2l..."
+          ></textarea>
+        </label>
+      </fieldset>
+
+      <div>
+        <button class="botao" onclick="finalizarPedido()">
+          Finalizar Pedido
+        </button>
+      </div>
+    </form>
+    </main>
+    <footer>
+      <p>Site criado por <a href="https://www.google.com/search?client=opera&q=nhem&sourceid=opera&ie=UTF-8&oe=UTF-8" target="_blank">Nhem</a> para a <a href="+55(24)99838-6746">Casa da Pizza Scotini</a></p>
+    </footer>
+  </body>
+  <script>
+    let nome;
+    let endereco;
+    let pgmt;
+    let pedido;
+
+    var button = document.querySelector("button");
+
+    button.onclick = function () {
+      nome = document.querySelector("#first-name").value;
+      endereco = document.querySelector("#address").value;
+      pedido = document.querySelector("#pedido").value;
+
+      if (document.getElementById("card").checked) {
+        pgmt = document.getElementById("card").value;
+      }
+
+      if (document.getElementById("money").checked) {
+        pgmt = document.getElementById("money").value;
+      }
+
+      if (document.getElementById("pix").checked) {
+        pgmt = document.getElementById("pix").value;
+      }
+      finalizarPedido();
+    };
+
+    function finalizarPedido() {
+
+      var texto =
+        "Olá, meu nome é " +
+        nome +
+        ". \n\nGostaria do seguinte: " +
+        pedido +
+        ". \n\n" +
+        "Meu endereço é: " +
+        endereco +
+        ". \n\n" +
+        "O método de pagamento é: " +
+        pgmt +
+        ". \n \n";
+
+      texto = window.encodeURIComponent(texto);
+
+      window.open("https://wa.me/+5581997466214?text=" + texto);
+    }
+  </script>
+</html>
