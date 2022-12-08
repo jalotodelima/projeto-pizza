@@ -14,16 +14,16 @@
 }
 
 header {
-    min-height: 140px;
+    min-height: 120px;
     background-image: linear-gradient(to top, var(--cor1), var(--cor2), var(--cor3));
     text-align: center;
-    padding: 35px 0px 10px 0px;
+    padding: 35px 0px 1px 0px;
 }
 
 header > h1 {
-  text-transform: uppercase;
+  font-variant: small-caps;
   margin: auto;
-  font-size: 2.2em;
+  font-size: 2.5em;
   color: #fff;
   font-weight: 400px;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.916);
