@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -28,10 +28,19 @@
           <textarea
             id="pedido"
             name="pedido"
-            rows="3"
+            rows="4"
             cols="30"
             placeholder="Ex: Pizza Família Meia 4 queijos e Meia portuguesa. E 1 Coca de 2l..."
-          ></textarea>
+          ></textarea></label>
+          <label for="borda" class="inline">
+          <input
+            id="borda"
+            type="radio"
+            name="borda"
+            class="inline"
+            value="SEM borda"
+          />
+          Sem Borda
         </label>
       </fieldset>
       <fieldset>
@@ -60,8 +69,7 @@
             class="inline"
             value="Cartão"
           />
-          Cartão</label
-        >
+          Cartão</label>
         <label for="pix" class="inline">
           <input
             id="pix"
@@ -128,11 +136,42 @@
 
     var button = document.querySelector("button");
 
+   // Array inputs
+   const ratings = document.querySelectorAll('input[type=radio]');
+   // Array false & true.
+   const array = [];
+
+    console.log(ratings.length);
+   for(let i = 0; i < ratings.length; i++) {
+    array[i] = false;
+    // create event handler on change's
+    ratings[i].addEventListener('click',function()
+    {
+        console.log(i);
+        console.log(array[i]);
+        // check if he has checked before
+        if(array[i] == true)
+        {
+          ratings[i].checked = false;
+          array[i] = false;
+          return;
+        }
+        // set to true.
+        array[i] = true;
+    });
+  }
+
     button.onclick = function () {
       nome = document.querySelector("#first-name").value;
       endereco = document.querySelector("#address").value;
       pedido = document.querySelector("#pedido").value;
 
+      if (document.getElementById("borda").checked) {
+        borda = document.getElementById("borda").value;
+      } else {
+        borda = "COM Borda"
+      } 
+   
       if (document.getElementById("card").checked) {
         pgmt = document.getElementById("card").value;
       }
@@ -159,6 +198,7 @@
         ". \n\nGostaria do seguinte: " +
         pedido +
         ". \n\n" +
+        borda + ". \n\n"+
         "Meu endereço é: " +
         endereco +
         ". \n\n" +
